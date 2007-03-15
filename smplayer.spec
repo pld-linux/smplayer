@@ -15,12 +15,19 @@ BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.129
+Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-SMPlayer intends to be a complete front-end for MPlayer, from basic features like playing videos, DVDs, and VCDs to more advanced features like support for MPlayer filters and more. 
+SMPlayer intends to be a complete front-end for MPlayer, from basic
+features like playing videos, DVDs, and VCDs to more advanced features
+like support for MPlayer filters and more.
 
-One of the most interesting features of SMPlayer: it remembers the settings of all files you play. So you start to watch a movie but you have to leave... don't worry, when you open that movie again it will resume at the same point you left it, and with the same settings: audio track, subtitles, volume...
+One of the most interesting features of SMPlayer: it remembers the
+settings of all files you play. So you start to watch a movie but you
+have to leave... don't worry, when you open that movie again it will
+resume at the same point you left it, and with the same settings:
+audio track, subtitles, volume...
 
 #%description -l pl.UTF-8
 
