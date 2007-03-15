@@ -38,10 +38,9 @@ qt4-qmake
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	PREFIX=$RPM_BUILD_ROOT%{_prefix} \
-	KDE_PREFIX=$RPM_BUILD_ROOT%{_prefix} \
-	CONF_PREFIX=$RPM_BUILD_ROOT%{_prefix}
+	PREFIX=$RPM_BUILD_ROOT%{_prefix}/ \
+	KDE_PREFIX=$RPM_BUILD_ROOT%{_prefix}/ \
+	CONF_PREFIX=$RPM_BUILD_ROOT%{_prefix}/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -49,3 +48,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
+%{_desktopdir}/smplayer.desktop
+%{_docdir}/packages/smplayer/Changelog
+%{_docdir}/packages/smplayer/Copying.txt
+%{_docdir}/packages/smplayer/Not_so_obvious_things.txt
+%{_docdir}/packages/smplayer/README.txt
+%{_iconsdir}/hicolor/*/apps/smplayer.png
+%{_datadir}/smplayer/input.conf
+%lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
+%lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
+%lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
