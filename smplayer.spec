@@ -1,5 +1,5 @@
 Summary:	smplayer - mplayer frontend
-Summary(pl.UTF-8):	smplayer - nakÅadka na mplayera
+Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
 Version:	0.2.26
 Release:	1
@@ -30,23 +30,23 @@ resume at the same point you left it, and with the same settings:
 audio track, subtitles, volume...
 
 %description -l pl.UTF-8
-SMPlayer stara siÄ byÄ kompletnÄ nakÅadkÄ na MPlayera, poczÄwszy
-od podstawowych funkcji jak odtwarzanie plikÃ³w video, DVD i VCD
-koÅczÄc na bardziej zaawansowanych opcjach jak obsÅuga filtrÃ³w
-MPlayera oraz wiele wiÄcej.
+SMPlayer stara się być kompletną nakładką na MPlayera, począwszy
+od podstawowych funkcji jak odtwarzanie plików video, DVD i VCD
+kończąc na bardziej zaawansowanych opcjach jak obsługa filtrów
+MPlayera oraz wiele więcej.
 
-JednÄ z najciekawszych funkcji SMPlayera jest to, Å¼e zapamiÄtuje
-ustawienia wszystkich plikÃ³w jakie odgrywasz. Zaczynasz oglÄdaÄ
-film, ale musisz wyjÅÄ... nie martw siÄ, kiedy odtworzysz film
-ponownie zacznie od momentu, w ktÃ³rym go wyÅÄczyÅeÅ i z tymi
-samymi ustawieniami jak: ÅcieÅÅ¼ka dÅºwiÄkowa, napisy,
-gÅoÅnoÅÄ...
+Jedną z najciekawszych funkcji SMPlayera jest to, że zapamiętuje
+ustawienia wszystkich plików jakie odgrywasz. Zaczynasz oglądać
+film, ale musisz wyjść... nie martw się, kiedy odtworzysz film
+ponownie zacznie od momentu, w którym go wyłączyłeś i z tymi
+samymi ustawieniami jak: ścieżka dźwiękowa, napisy,
+głośność...
 
 %prep
 %setup -q
 
 %build
-cd src/
+cd src
 rm -f Makefile
 qt3to4 -alwaysOverwrite %{name}.pro
 qt4-qmake
