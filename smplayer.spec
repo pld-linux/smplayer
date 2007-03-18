@@ -59,20 +59,19 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=$RPM_BUILD_ROOT%{_prefix}/ \
 	KDE_PREFIX=$RPM_BUILD_ROOT%{_prefix}/ \
 	CONF_PREFIX=$RPM_BUILD_ROOT%{_prefix}/
-
+rm -rf $RPM_BUILD_ROOT%{_docdir}/packages
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc Changelog Not_so_obvious_things.txt README.txt
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/smplayer.desktop
-%{_docdir}/packages/smplayer/Changelog
-%{_docdir}/packages/smplayer/Copying.txt
-%{_docdir}/packages/smplayer/Not_so_obvious_things.txt
-%{_docdir}/packages/smplayer/README.txt
 %{_iconsdir}/hicolor/*/apps/smplayer.png
+%dir %{_datadir}/smplayer
 %{_datadir}/smplayer/input.conf
+%dir %{_datadir}/smplayer/translations
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
 %lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
