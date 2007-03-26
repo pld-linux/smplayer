@@ -1,19 +1,15 @@
 Summary:	smplayer - mplayer frontend
-Summary(pl.UTF-8):	smplayer - nakÅ‚adka na mplayera
+Summary(pl):	smplayer - nak³adka na mplayera
 Name:		smplayer
 Version:	0.2.40
-Release:	1
+Release:	1.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	c57fd3eedec4e88d79f8ff62858048b4
 URL:		http://smplayer.sourceforge.net/
-BuildRequires:	Qt3Support-devel
-BuildRequires:	QtCore-devel
-BuildRequires:	QtGui-devel
 BuildRequires:	kdelibs-devel >= 9:3.2.0
-BuildRequires:	qt4-build
-BuildRequires:	qt4-qmake
+BuildRequires:	qmake
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,28 +25,35 @@ have to leave... don't worry, when you open that movie again it will
 resume at the same point you left it, and with the same settings:
 audio track, subtitles, volume...
 
-%description -l pl.UTF-8
-SMPlayer stara siÄ™ byÄ‡ kompletnÄ… nakÅ‚adkÄ… na MPlayera, poczÄ…wszy
-od podstawowych funkcji jak odtwarzanie plikÃ³w video, DVD i VCD
-koÅ„czÄ…c na bardziej zaawansowanych opcjach jak obsÅ‚uga filtrÃ³w
-MPlayera oraz wiele wiÄ™cej.
+%description -l pl
+SMPlayer stara siê byæ kompletn± nak³adk± na MPlayera, pocz±wszy
+od podstawowych funkcji jak odtwarzanie plików video, DVD i VCD
+koñcz±c na bardziej zaawansowanych opcjach jak obs³uga filtrów
+MPlayera oraz wiele wiêcej.
 
-JednÄ… z najciekawszych funkcji SMPlayera jest to, Å¼e zapamiÄ™tuje
-ustawienia wszystkich plikÃ³w jakie odgrywasz. Zaczynasz oglÄ…daÄ‡
-film, ale musisz wyjÅ›Ä‡... nie martw siÄ™, kiedy odtworzysz film
-ponownie zacznie od momentu, w ktÃ³rym go wyÅ‚Ä…czyÅ‚eÅ› i z tymi
-samymi ustawieniami jak: Å›cieÅ¼ka dÅºwiÄ™kowa, napisy,
-gÅ‚oÅ›noÅ›Ä‡...
+Jedn± z najciekawszych funkcji SMPlayera jest to, ¿e zapamiêtuje
+ustawienia wszystkich plików jakie odgrywasz. Zaczynasz ogl±daæ
+film, ale musisz wyj¶æ... nie martw siê, kiedy odtworzysz film
+ponownie zacznie od momentu, w którym go wy³±czy³e¶ i z tymi
+samymi ustawieniami jak: ¶cie¿ka d¼wiêkowa, napisy,
+g³o¶no¶æ...
 
 %prep
 %setup -q
+echo 'CONFIG+= thread' >> src/smplayer.pro
+rm -f src/Makefile
 
 %build
+export QTDIR=/usr
 cd src
-rm -f Makefile
-qt3to4 -alwaysOverwrite %{name}.pro
-qt4-qmake
-%{__make}
+qmake
+%{__make} \
+	DATA_PATH=\\\"/usr/share/smplayer/\\\" \
+	CONF_PATH=\\\"/etc/smplayer/\\\"  \
+	TRANSLATION_PATH=\\\"/usr/share/smplayer/translations/\\\"  \
+	DOC_PATH=\\\"/usr/share/doc/%{name}-%{version}/\\\" \
+
+# "
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -60,13 +63,14 @@ rm -rf $RPM_BUILD_ROOT
 	KDE_PREFIX=$RPM_BUILD_ROOT%{_prefix}/ \
 	CONF_PREFIX=$RPM_BUILD_ROOT%{_prefix}/
 rm -rf $RPM_BUILD_ROOT%{_docdir}/packages
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc Changelog Not_so_obvious_things.txt README.txt
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/smplayer
 %{_desktopdir}/smplayer.desktop
 %{_iconsdir}/hicolor/*/apps/smplayer.png
 %dir %{_datadir}/smplayer
