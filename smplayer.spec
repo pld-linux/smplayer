@@ -1,12 +1,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.3.7
+Version:	0.3.8
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	e03ddce8fbadc7ea7fd6bd66263659c5
+# Source0-md5:	5c1ef02aff936c2a5fe929bdb5dc102e
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -30,17 +30,16 @@ resume at the same point you left it, and with the same settings:
 audio track, subtitles, volume...
 
 %description -l pl.UTF-8
-SMPlayer stara się być kompletną nakładką na MPlayera, począwszy
-od podstawowych funkcji jak odtwarzanie plików video, DVD i VCD
-kończąc na bardziej zaawansowanych opcjach jak obsługa filtrów
-MPlayera oraz wiele więcej.
+SMPlayer stara się być kompletną nakładką na MPlayera, począwszy od
+podstawowych funkcji jak odtwarzanie plików video, DVD i VCD kończąc
+na bardziej zaawansowanych opcjach jak obsługa filtrów MPlayera oraz
+wiele więcej.
 
 Jedną z najciekawszych funkcji SMPlayera jest to, że zapamiętuje
-ustawienia wszystkich plików jakie odgrywasz. Zaczynasz oglądać
-film, ale musisz wyjść... nie martw się, kiedy odtworzysz film
-ponownie zacznie od momentu, w którym go wyłączyłeś i z tymi
-samymi ustawieniami jak: ścieżka dźwiękowa, napisy,
-głośność...
+ustawienia wszystkich plików jakie odgrywasz. Zaczynasz oglądać film,
+ale musisz wyjść... nie martw się, kiedy odtworzysz film ponownie
+zacznie od momentu, w którym go wyłączyłeś i z tymi samymi
+ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
 %setup -q
@@ -82,3 +81,5 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
 %lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
+%lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
+%lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
