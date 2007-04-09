@@ -1,12 +1,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl):	smplayer - nak³adka na mplayera
 Name:		smplayer
-Version:	0.3.12
+Version:	0.3.13
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	81176b1b29e2b8006b4283cdc886ae99
+# Source0-md5:	5408819fc2e2ed902914b631ef73bc52
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	qmake
@@ -75,6 +75,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/smplayer.png
 %dir %{_datadir}/smplayer
 %{_datadir}/smplayer/input.conf
+# icons from 0.3.13
+%{_datadir}/smplayer/icons
+#
 %dir %{_datadir}/smplayer/translations
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
