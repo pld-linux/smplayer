@@ -93,4 +93,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
 %lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
-%lang(uk_UA) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
+%lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
