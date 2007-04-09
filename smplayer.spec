@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	5408819fc2e2ed902914b631ef73bc52
+Patch0:		%{name}-translations_path.patch
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -43,6 +44,7 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 cd src
