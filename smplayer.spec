@@ -48,7 +48,10 @@ rm -f src/Makefile
 %build
 export QTDIR=/usr
 cd src
-qmake
+qmake \
+	DEFINES+=KDE_SUPPORT \
+	LIBS+="-lkio"
+
 %{__make} \
 	DATA_PATH=\\\"/usr/share/smplayer/\\\" \
 	CONF_PATH=\\\"/etc/smplayer/\\\"  \
