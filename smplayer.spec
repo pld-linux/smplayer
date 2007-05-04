@@ -84,20 +84,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/smplayer/icons
 #
 %dir %{_datadir}/smplayer/translations
+%lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
+%lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
-%lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
-%lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
-%lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
-%lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
-%lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
-%lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
 %lang(en_US) /usr/share/smplayer/translations/smplayer_en_US.qm
+%lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
+%lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
 %lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
+%lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
+%lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
 %lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
-%lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
 %lang(pt_BR) %{_datadir}/smplayer/translations/smplayer_pt_BR.qm
-%lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
-%lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
-%lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
+%lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
+%lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
+%lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
+%lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
