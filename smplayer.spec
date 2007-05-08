@@ -88,6 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt_BR) %{_datadir}/smplayer/translations/smplayer_pt_BR.qm
 %lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
 %lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
+%lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
 %lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
-%lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
