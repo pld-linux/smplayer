@@ -1,12 +1,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.4.10
+Version:	0.4.15
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	ce49a850762c6f97462ccb6d52728bce
+# Source0-md5:	c06964e3982117c7e3dcb34381d5cbe0
 Patch0:		%{name}-translations_path.patch
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
@@ -72,9 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/smplayer.png
 %dir %{_datadir}/smplayer
 %{_datadir}/smplayer/input.conf
-# icons from 0.3.13
-%{_datadir}/smplayer/icons
-#
 %dir %{_datadir}/smplayer/translations
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
@@ -93,3 +90,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
 %lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
+%lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
