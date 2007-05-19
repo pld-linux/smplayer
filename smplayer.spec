@@ -1,12 +1,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl):	smplayer - nak³adka na mplayera
 Name:		smplayer
-Version:	0.4.7
+Version:	0.4.23
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	0f69096146c37d0295135f0229551341
+# Source0-md5:	056258d2143a3bfd51598f366d798128
 Patch0:		%{name}-translations_path.patch
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	kdelibs-devel >= 9:3.2.0
@@ -58,8 +58,6 @@ qmake \
 	TRANSLATION_PATH=\\\"/usr/share/smplayer/translations/\\\"  \
 	DOC_PATH=\\\"/usr/share/doc/%{name}-%{version}/\\\" \
 
-# "
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
@@ -80,14 +78,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/smplayer.png
 %dir %{_datadir}/smplayer
 %{_datadir}/smplayer/input.conf
-# icons from 0.3.13
-%{_datadir}/smplayer/icons
-#
+%dir %{_datadir}/smplayer/shortcuts
+%{_datadir}/smplayer/shortcuts/default.keys
 %dir %{_datadir}/smplayer/translations
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
-%lang(en_US) /usr/share/smplayer/translations/smplayer_en_US.qm
+%lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
 %lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
 %lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
@@ -99,5 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt_BR) %{_datadir}/smplayer/translations/smplayer_pt_BR.qm
 %lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
 %lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
+%lang(sv) %{_datadir}/smplayer/translations/smplayer_sv.qm
+%lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
 %lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
