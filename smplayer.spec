@@ -1,5 +1,5 @@
 Summary:	smplayer - mplayer frontend
-Summary(pl):	smplayer - nak³adka na mplayera
+Summary(pl.UTF-8):	smplayer - nakÅ‚adka na mplayera
 Name:		smplayer
 Version:	0.4.23
 Release:	1
@@ -26,18 +26,17 @@ have to leave... don't worry, when you open that movie again it will
 resume at the same point you left it, and with the same settings:
 audio track, subtitles, volume...
 
-%description -l pl
-SMPlayer stara siê byæ kompletn± nak³adk± na MPlayera, pocz±wszy
-od podstawowych funkcji jak odtwarzanie plików video, DVD i VCD
-koñcz±c na bardziej zaawansowanych opcjach jak obs³uga filtrów
-MPlayera oraz wiele wiêcej.
+%description -l pl.UTF-8
+SMPlayer stara siÄ™ byÄ‡ kompletnÄ… nakÅ‚adkÄ… na MPlayera, poczÄ…wszy od
+podstawowych funkcji jak odtwarzanie plikÃ³w video, DVD i VCD koÅ„czÄ…c
+na bardziej zaawansowanych opcjach jak obsÅ‚uga filtrÃ³w MPlayera oraz
+wiele wiÄ™cej.
 
-Jedn± z najciekawszych funkcji SMPlayera jest to, ¿e zapamiêtuje
-ustawienia wszystkich plików jakie odgrywasz. Zaczynasz ogl±daæ
-film, ale musisz wyj¶æ... nie martw siê, kiedy odtworzysz film
-ponownie zacznie od momentu, w którym go wy³±czy³e¶ i z tymi
-samymi ustawieniami jak: ¶cie¿ka d¼wiêkowa, napisy,
-g³o¶no¶æ...
+JednÄ… z najciekawszych funkcji SMPlayera jest to, Å¼e zapamiÄ™tuje
+ustawienia wszystkich plikÃ³w jakie odgrywasz. Zaczynasz oglÄ…daÄ‡ film,
+ale musisz wyjÅ›Ä‡... nie martw siÄ™, kiedy odtworzysz film ponownie
+zacznie od momentu, w ktÃ³rym go wyÅ‚Ä…czyÅ‚eÅ› i z tymi samymi
+ustawieniami jak: Å›cieÅ¼ka dÅºwiÄ™kowa, napisy, gÅ‚oÅ›noÅ›Ä‡...
 
 %prep
 %setup -q
