@@ -2,7 +2,7 @@ Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
 Version:	0.4.29
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
@@ -51,8 +51,8 @@ cd src
 rm -f Makefile
 qt3to4 -alwaysOverwrite %{name}.pro
 qt4-qmake
-%{__make}
-
+%{__make} THEMES_PATH=\\\"%{_datadir}/smplayer/themes\\\" 
+	
 %install
 rm -rf $RPM_BUILD_ROOT
 
