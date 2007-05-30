@@ -7,7 +7,6 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	e3282320cb1b186e601511ec51bacdbe
-Patch0:		%{name}-translations_path.patch
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	qmake
@@ -41,7 +40,6 @@ g³o¶no¶æ...
 
 %prep
 %setup -q
-%patch0 -p0
 echo 'CONFIG+= thread' >> src/smplayer.pro
 rm -f src/Makefile
 
