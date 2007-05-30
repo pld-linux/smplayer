@@ -1,12 +1,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl):	smplayer - nak³adka na mplayera
 Name:		smplayer
-Version:	0.4.29
+Version:	0.5.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	a8474eb7b5f16bba2b5d6a015a7a151b
+# Source0-md5:	e3282320cb1b186e601511ec51bacdbe
 Patch0:		%{name}-translations_path.patch
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	kdelibs-devel >= 9:3.2.0
@@ -102,3 +102,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
 %lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
+%lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
