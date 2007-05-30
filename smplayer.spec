@@ -7,7 +7,6 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	e3282320cb1b186e601511ec51bacdbe
-Patch0:		%{name}-translations_path.patch
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -44,15 +43,16 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 cd src
 rm -f Makefile
 qt3to4 -alwaysOverwrite %{name}.pro
 qt4-qmake
-%{__make} THEMES_PATH=\\\"%{_datadir}/smplayer/themes\\\" 
-	
+%{__make} \
+	THEMES_PATH=\\\"%{_datadir}/smplayer/themes\\\" \
+	TRANSLATION_PATH=\\\"%{_datadir}/smplayer/translations/\\\"
+
 %install
 rm -rf $RPM_BUILD_ROOT
 
