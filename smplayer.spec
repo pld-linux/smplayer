@@ -1,14 +1,16 @@
+
+%define		snap	0818
+
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.5.21
-Release:	1
+Version:	0.5.30
+Release:	0.%{snap}.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	e68ecce456c20b0ff6a6bbae56d96e47
+Source0:	http://smplayer.sourceforge.net/porting/%{name}-%{version}-qt4-%{snap}.tar.bz2
+# Source0-md5:	aad374b62d3350f1c6ba84b5417de29d
 URL:		http://smplayer.sourceforge.net/
-BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
 BuildRequires:	QtGui-devel
 BuildRequires:	QtOpenGL-devel
@@ -43,12 +45,11 @@ zacznie od momentu, w którym go wyłączyłeś i z tymi samymi
 ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-qt4-%{snap}
 
 %build
 cd src
 rm -f Makefile
-qt3to4 -alwaysOverwrite %{name}.pro
 qt4-qmake
 %{__make} \
 	THEMES_PATH=\\\"%{_datadir}/smplayer/themes\\\" \
@@ -76,26 +77,26 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/smplayer/shortcuts
 %{_datadir}/smplayer/shortcuts/default.keys
 %dir %{_datadir}/smplayer/translations
-%lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
-%lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
-%lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
-%lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
-%lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
-%lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
-%lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
-%lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
-%lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
-%lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
-%lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
-%lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
-%lang(pt) %{_datadir}/smplayer/translations/smplayer_pt_PT.qm  
-%lang(pt_BR) %{_datadir}/smplayer/translations/smplayer_pt_BR.qm
-%lang(ro) %{_datadir}/smplayer/translations/smplayer_ro_RO.qm
-%lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
-%lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
-%lang(sr) %{_datadir}/smplayer/translations/smplayer_sr.qm
-%lang(sv) %{_datadir}/smplayer/translations/smplayer_sv.qm
-%lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
-%lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
-%lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
-%lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
+#%lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
+#%lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
+#%lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
+#%lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
+#%lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
+%lang(fr) %{_datadir}/smplayer/translations/qt_fr.qm
+#%lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
+#%lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
+#%lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
+#%lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
+#%lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
+#%lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
+#%lang(pt) %{_datadir}/smplayer/translations/smplayer_pt_PT.qm  
+#%lang(pt_BR) %{_datadir}/smplayer/translations/smplayer_pt_BR.qm
+#%lang(ro) %{_datadir}/smplayer/translations/smplayer_ro_RO.qm
+#%lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
+#%lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
+#%lang(sr) %{_datadir}/smplayer/translations/smplayer_sr.qm
+#%lang(sv) %{_datadir}/smplayer/translations/smplayer_sv.qm
+#%lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
+#%lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
+#%lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
+#%lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
