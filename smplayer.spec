@@ -62,6 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 	KDE_PREFIX=$RPM_BUILD_ROOT%{_prefix}/ \
 	CONF_PREFIX=$RPM_BUILD_ROOT%{_prefix}/
 rm -rf $RPM_BUILD_ROOT%{_docdir}/packages
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
