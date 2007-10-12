@@ -1,7 +1,3 @@
-#
-# TODO:
-# - translations not seen by smplayer
-#
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
