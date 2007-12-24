@@ -1,19 +1,21 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.5.21
+Version:	0.5.62
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://smplayer.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	e68ecce456c20b0ff6a6bbae56d96e47
+Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
+# Source0-md5:	6d86acbe9199b5912ddceeb42042cce1
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
 BuildRequires:	QtGui-devel
+BuildRequires:	QtNetwork-devel
 BuildRequires:	QtOpenGL-devel
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	qt4-build
+BuildRequires:	qt4-linguist
 BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	mplayer
@@ -48,19 +50,19 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 %build
 cd src
 rm -f Makefile
-qt3to4 -alwaysOverwrite %{name}.pro
 qt4-qmake
 %{__make} \
 	THEMES_PATH=\\\"%{_datadir}/smplayer/themes\\\" \
 	TRANSLATION_PATH=\\\"%{_datadir}/smplayer/translations/\\\"
 
+%{_libdir}/qt4/bin/lrelease smplayer.pro
+
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	PREFIX=$RPM_BUILD_ROOT%{_prefix}/ \
-	KDE_PREFIX=$RPM_BUILD_ROOT%{_prefix}/ \
-	CONF_PREFIX=$RPM_BUILD_ROOT%{_prefix}/
+	PREFIX=$RPM_BUILD_ROOT%{_prefix}
+
 rm -rf $RPM_BUILD_ROOT%{_docdir}/packages
 
 %clean
@@ -81,7 +83,9 @@ rm -rf $RPM_BUILD_ROOT
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
 %lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
+%lang(el) %{_datadir}/smplayer/translations/smplayer_el_GR.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
+%lang(fr) %{_datadir}/smplayer/translations/qt_fr.qm
 %lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
 %lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
 %lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
@@ -89,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
 %lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
-%lang(pt) %{_datadir}/smplayer/translations/smplayer_pt_PT.qm  
+%lang(pt) %{_datadir}/smplayer/translations/smplayer_pt_PT.qm
 %lang(pt_BR) %{_datadir}/smplayer/translations/smplayer_pt_BR.qm
 %lang(ro) %{_datadir}/smplayer/translations/smplayer_ro_RO.qm
 %lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
