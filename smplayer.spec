@@ -14,9 +14,9 @@ BuildRequires:	QtGui-devel
 BuildRequires:	QtNetwork-devel
 BuildRequires:	QtOpenGL-devel
 BuildRequires:	kdelibs-devel >= 9:3.2.0
-BuildRequires:	qt4-build
-BuildRequires:	qt4-linguist
-BuildRequires:	qt4-qmake
+BuildRequires:	qt4-build >= 4.3.3-3
+BuildRequires:	qt4-linguist >= 4.3.3-3
+BuildRequires:	qt4-qmake >= 4.3.3-3
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	mplayer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,12 +50,12 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 %build
 cd src
 rm -f Makefile
-qt4-qmake
+qmake-qt4
 %{__make} \
 	THEMES_PATH=\\\"%{_datadir}/smplayer/themes\\\" \
 	TRANSLATION_PATH=\\\"%{_datadir}/smplayer/translations/\\\"
 
-%{_libdir}/qt4/bin/lrelease smplayer.pro
+lrelease-qt4 smplayer.pro
 
 %install
 rm -rf $RPM_BUILD_ROOT
