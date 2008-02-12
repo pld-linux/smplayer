@@ -1,12 +1,13 @@
+%define	_ver	rc1
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.5.62
-Release:	1
+Version:	0.6.0
+Release:	0.%{_ver}.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	6d86acbe9199b5912ddceeb42042cce1
+Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}%{_ver}.tar.bz2
+# Source0-md5:	f93f6a6840aed0d070c30d1931a62904
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -45,7 +46,7 @@ zacznie od momentu, w którym go wyłączyłeś i z tymi samymi
 ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_ver}
 
 %build
 cd src
@@ -79,6 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/smplayer/shortcuts
 %{_datadir}/smplayer/shortcuts/default.keys
 %dir %{_datadir}/smplayer/translations
+%{_mandir}/man1/*
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
@@ -87,10 +89,12 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
 %lang(fr) %{_datadir}/smplayer/translations/qt_fr.qm
 %lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
+%lang(fi) %{_datadir}/smplayer/translations/smplayer_fi.qm
 %lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
 %lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
 %lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
+%lang(ko) %{_datadir}/smplayer/translations/smplayer_ko.qm
 %lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
 %lang(pt) %{_datadir}/smplayer/translations/smplayer_pt_PT.qm
