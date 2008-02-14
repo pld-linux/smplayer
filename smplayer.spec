@@ -1,4 +1,4 @@
-%define	_ver	rc1
+%define	_ver	rc2
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
@@ -7,7 +7,7 @@ Release:	0.%{_ver}.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}%{_ver}.tar.bz2
-# Source0-md5:	f93f6a6840aed0d070c30d1931a62904
+# Source0-md5:	818f0c85e4d42107e0ab334399702666
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
