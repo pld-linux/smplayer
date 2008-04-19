@@ -1,4 +1,4 @@
-%define	_ver	rc3
+%define	_ver	rc4
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
@@ -7,7 +7,7 @@ Release:	0.%{_ver}.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}%{_ver}.tar.bz2
-# Source0-md5:	1cf6082540a6b19425be7369283451a4
+# Source0-md5:	e4f14e0b0aaf1d726e5cd24c5c4c162b
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -87,6 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
 %lang(el) %{_datadir}/smplayer/translations/smplayer_el_GR.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
+%lang(eu) %{_datadir}/smplayer/translations/smplayer_eu.qm
 %lang(fr) %{_datadir}/smplayer/translations/qt_fr.qm
 %lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
 %lang(fi) %{_datadir}/smplayer/translations/smplayer_fi.qm
@@ -95,6 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
 %lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
 %lang(ko) %{_datadir}/smplayer/translations/smplayer_ko.qm
+%lang(mk) %{_datadir}/smplayer/translations/smplayer_mk.qm
 %lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
 %lang(pt) %{_datadir}/smplayer/translations/smplayer_pt_PT.qm
