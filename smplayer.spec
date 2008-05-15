@@ -1,12 +1,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.5.62
+Version:	0.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	6d86acbe9199b5912ddceeb42042cce1
+Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}final.tar.bz2
+# Source0-md5:	056ef492305afdfc105874529204358f
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -45,7 +45,7 @@ zacznie od momentu, w którym go wyłączyłeś i z tymi samymi
 ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}final
 
 %build
 cd src
@@ -73,11 +73,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changelog Not_so_obvious_things.txt Readme.txt
 %attr(755,root,root) %{_bindir}/smplayer
 %{_desktopdir}/smplayer.desktop
+%{_desktopdir}/smplayer_enqueue.desktop
 %{_iconsdir}/hicolor/*/apps/smplayer.png
 %dir %{_datadir}/smplayer
 %{_datadir}/smplayer/input.conf
 %dir %{_datadir}/smplayer/shortcuts
 %{_datadir}/smplayer/shortcuts/default.keys
+%{_mandir}/man1/smplayer.1.*
 %dir %{_datadir}/smplayer/translations
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
