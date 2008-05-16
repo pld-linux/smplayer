@@ -72,14 +72,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changelog Not_so_obvious_things.txt Readme.txt
 %attr(755,root,root) %{_bindir}/smplayer
-%{_desktopdir}/smplayer.desktop
-%{_desktopdir}/smplayer_enqueue.desktop
-%{_iconsdir}/hicolor/*/apps/smplayer.png
 %dir %{_datadir}/smplayer
 %{_datadir}/smplayer/input.conf
 %dir %{_datadir}/smplayer/shortcuts
 %{_datadir}/smplayer/shortcuts/default.keys
-%{_mandir}/man1/smplayer.1.*
 %dir %{_datadir}/smplayer/translations
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
@@ -106,3 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
 %lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
+%{_desktopdir}/smplayer.desktop
+%{_desktopdir}/smplayer_enqueue.desktop
+%{_iconsdir}/hicolor/*/apps/smplayer.png
+%{_mandir}/man1/smplayer.1*
