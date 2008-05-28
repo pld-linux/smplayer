@@ -1,12 +1,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.6.0
+Version:	0.6.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}final.tar.bz2
-# Source0-md5:	056ef492305afdfc105874529204358f
+Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
+# Source0-md5:	af89719da92b5aa6760f2d73b0762ec8
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -45,7 +45,7 @@ zacznie od momentu, w którym go wyłączyłeś i z tymi samymi
 ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
-%setup -q -n %{name}-%{version}final
+%setup -q
 
 %build
 cd src
@@ -78,17 +78,22 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/smplayer/shortcuts/default.keys
 %dir %{_datadir}/smplayer/translations
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
+%lang(ca) %{_datadir}/smplayer/translations/smplayer_ca.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
 %lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
 %lang(el) %{_datadir}/smplayer/translations/smplayer_el_GR.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
+%lang(eu) %{_datadir}/smplayer/translations/smplayer_eu.qm
+%lang(fi) %{_datadir}/smplayer/translations/smplayer_fi.qm
 %lang(fr) %{_datadir}/smplayer/translations/qt_fr.qm
 %lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
 %lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
 %lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
 %lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
+%lang(ko) %{_datadir}/smplayer/translations/smplayer_ko.qm
+%lang(mk) %{_datadir}/smplayer/translations/smplayer_mk.qm
 %lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
 %lang(pt) %{_datadir}/smplayer/translations/smplayer_pt_PT.qm
