@@ -2,11 +2,12 @@ Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
 Version:	0.6.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
 # Source0-md5:	af89719da92b5aa6760f2d73b0762ec8
+Patch0:		%{name}-playlist_oor.patch
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -46,6 +47,7 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cd src
