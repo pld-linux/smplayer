@@ -78,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/smplayer/shortcuts/default.keys
 %{_datadir}/smplayer/shortcuts/sda.keys
 %dir %{_datadir}/smplayer/translations
-%lang(ar_SY) %{_datadir}/smplayer/translations/smplayer_ar_SY.qm
+%lang(ar) %{_datadir}/smplayer/translations/smplayer_ar_SY.qm
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
 %lang(ca) %{_datadir}/smplayer/translations/smplayer_ca.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
