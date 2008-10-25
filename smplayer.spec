@@ -1,12 +1,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.6.3
+Version:	0.6.4
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	dc1d482557cfda6d59534e9623a9fb16
+# Source0-md5:	9bcc69f81912e9a5d6b1628134b95c8a
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -88,8 +88,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
 %lang(eu) %{_datadir}/smplayer/translations/smplayer_eu.qm
 %lang(fi) %{_datadir}/smplayer/translations/smplayer_fi.qm
-%lang(fr) %{_datadir}/smplayer/translations/qt_fr.qm
 %lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
+%lang(gl) %{_datadir}/smplayer/translations/smplayer_gl.qm
 %lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
 %lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
