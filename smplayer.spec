@@ -1,3 +1,5 @@
+# TODO:
+# - Complains about too old mplayer. Author suggest using mplayer from svn.
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
