@@ -1,0 +1,11 @@
+--- smplayer-svn-r2782/Makefile.orig	2009-01-25 02:34:37.000000000 +0100
++++ smplayer-svn-r2782/Makefile	2009-02-16 22:38:40.000000000 +0100
+@@ -52,7 +52,7 @@
+ 	cd src && make distclean
+ 	-rm src/translations/smplayer_*.qm
+ 
+-install: src/smplayer
++install:
+ 	-install -d $(DESTDIR)$(PREFIX)/bin/
+ 	install -m 755 src/smplayer $(DESTDIR)$(PREFIX)/bin/
+ 	-install -d $(DESTDIR)$(DATA_PATH)
