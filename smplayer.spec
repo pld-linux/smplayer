@@ -1,25 +1,26 @@
-%define	_ver	rc4
+%define		svn r2782
+%define		snap svn-%{svn}
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.6.0
-Release:	0.%{_ver}.1
+Version:	0.6.7
+Release:	0.%{svn}.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}%{_ver}.tar.bz2
-# Source0-md5:	e4f14e0b0aaf1d726e5cd24c5c4c162b
+Source0:	ftp://ftp.berlios.de/pub/smplayer/source/%{name}-%{snap}.tar.bz2
+# Source0-md5:	9dc702d1d2ea15c7462f770a34ad6d41
+Patch0:		%{name}-Makefile.patch
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
 BuildRequires:	QtGui-devel
 BuildRequires:	QtNetwork-devel
 BuildRequires:	QtOpenGL-devel
-BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	qt4-build >= 4.3.3-3
 BuildRequires:	qt4-linguist >= 4.3.3-3
 BuildRequires:	qt4-qmake >= 4.3.3-3
 BuildRequires:	rpmbuild(macros) >= 1.129
-Requires:	mplayer
+Requires:	mplayer >= 3:1.0-5.rc2_svn27725.17
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,9 +47,13 @@ zacznie od momentu, w którym go wyłączyłeś i z tymi samymi
 ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
-%setup -q -n %{name}-%{version}%{_ver}
+%setup -q -n %{name}-%{snap}
+%patch0 -p1
 
 %build
+echo "#define SVN_REVISION \"SVN-%{svn}\"" > src/svn_revision.h
+echo "SVN-%{svn}" > svn_revision
+
 cd src
 rm -f Makefile
 qmake-qt4
@@ -73,29 +78,30 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changelog Not_so_obvious_things.txt Readme.txt
 %attr(755,root,root) %{_bindir}/smplayer
-%{_desktopdir}/smplayer.desktop
-%{_iconsdir}/hicolor/*/apps/smplayer.png
 %dir %{_datadir}/smplayer
 %{_datadir}/smplayer/input.conf
 %dir %{_datadir}/smplayer/shortcuts
 %{_datadir}/smplayer/shortcuts/default.keys
+%{_datadir}/smplayer/shortcuts/sda.keys
 %dir %{_datadir}/smplayer/translations
-%{_mandir}/man1/*
+%lang(ar) %{_datadir}/smplayer/translations/smplayer_ar_SY.qm
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
+%lang(ca) %{_datadir}/smplayer/translations/smplayer_ca.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
 %lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
 %lang(el) %{_datadir}/smplayer/translations/smplayer_el_GR.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
 %lang(eu) %{_datadir}/smplayer/translations/smplayer_eu.qm
-%lang(fr) %{_datadir}/smplayer/translations/qt_fr.qm
-%lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
 %lang(fi) %{_datadir}/smplayer/translations/smplayer_fi.qm
+%lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
+%lang(gl) %{_datadir}/smplayer/translations/smplayer_gl.qm
 %lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
 %lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
 %lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
 %lang(ko) %{_datadir}/smplayer/translations/smplayer_ko.qm
+%lang(ku) %{_datadir}/smplayer/translations/smplayer_ku.qm
 %lang(mk) %{_datadir}/smplayer/translations/smplayer_mk.qm
 %lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
@@ -104,9 +110,14 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ro) %{_datadir}/smplayer/translations/smplayer_ro_RO.qm
 %lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
 %lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
+%lang(sl) %{_datadir}/smplayer/translations/smplayer_sl_SI.qm
 %lang(sr) %{_datadir}/smplayer/translations/smplayer_sr.qm
 %lang(sv) %{_datadir}/smplayer/translations/smplayer_sv.qm
 %lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
 %lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
 %lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
+%{_desktopdir}/smplayer.desktop
+%{_desktopdir}/smplayer_enqueue.desktop
+%{_iconsdir}/hicolor/*/apps/smplayer.png
+%{_mandir}/man1/smplayer.1*
