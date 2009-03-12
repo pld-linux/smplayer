@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
 # Source0-md5:	306b99374ad89cee93f1ad6fa94dea71
+Patch0:		%{name}-translations.patch
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -46,8 +47,12 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+# fix: install only (not build source again)
+%{__sed} -i 's,install: src.*,install:,' Makefile
+
 cd src
 rm -f Makefile
 qmake-qt4
