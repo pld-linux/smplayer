@@ -1,0 +1,18 @@
+lrelease error: duplicate messages found in 'smplayer-0.6.7/src/translations/smplayer_gl.ts':
+
+* Context: Languages
+* Source: Volapk
+
+--- smplayer-0.6.7/src/translations/smplayer_gl.ts.orig	2009-03-12 22:29:45.000000000 +0100
++++ smplayer-0.6.7/src/translations/smplayer_gl.ts	2009-03-12 22:30:04.000000000 +0100
+@@ -2417,10 +2417,6 @@
+         <translation type="obsolete">Serbocroata</translation>
+     </message>
+     <message>
+-        <source>Volap&#xfc;k</source>
+-        <translation type="obsolete">Volapük</translation>
+-    </message>
+-    <message>
+         <source>Avestan</source>
+         <translation type="unfinished"></translation>
+     </message>
