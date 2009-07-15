@@ -2,7 +2,7 @@ Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
 Version:	0.6.7
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
@@ -14,7 +14,6 @@ BuildRequires:	QtCore-devel
 BuildRequires:	QtGui-devel
 BuildRequires:	QtNetwork-devel
 BuildRequires:	QtOpenGL-devel
-BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	qt4-build >= 4.3.3-3
 BuildRequires:	qt4-linguist >= 4.3.3-3
 BuildRequires:	qt4-qmake >= 4.3.3-3
@@ -53,6 +52,7 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 # fix: install only (not build source again)
 %{__sed} -i 's,install: src.*,install:,' Makefile
 
+
 cd src
 rm -f Makefile
 qmake-qt4
@@ -60,10 +60,13 @@ qmake-qt4
 	THEMES_PATH=\\\"%{_datadir}/smplayer/themes\\\" \
 	TRANSLATION_PATH=\\\"%{_datadir}/smplayer/translations/\\\"
 
+# " - for vim
+
 lrelease-qt4 smplayer.pro
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/smplayer/themes
 
 %{__make} install \
 	PREFIX=$RPM_BUILD_ROOT%{_prefix}
@@ -82,6 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/smplayer/shortcuts
 %{_datadir}/smplayer/shortcuts/default.keys
 %{_datadir}/smplayer/shortcuts/sda.keys
+%dir %{_datadir}/smplayer/themes
 %dir %{_datadir}/smplayer/translations
 %lang(ar) %{_datadir}/smplayer/translations/smplayer_ar_SY.qm
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
