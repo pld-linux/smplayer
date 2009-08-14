@@ -93,6 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
 %lang(el) %{_datadir}/smplayer/translations/smplayer_el_GR.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
+%lang(et) %{_datadir}/smplayer/translations/smplayer_et.qm
 %lang(eu) %{_datadir}/smplayer/translations/smplayer_eu.qm
 %lang(fi) %{_datadir}/smplayer/translations/smplayer_fi.qm
 %lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
@@ -106,6 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(mk) %{_datadir}/smplayer/translations/smplayer_mk.qm
 %lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
+%lang(pt) %{_datadir}/smplayer/translations/smplayer_pt.qm
 %lang(pt_BR) %{_datadir}/smplayer/translations/smplayer_pt_BR.qm
 %lang(ro) %{_datadir}/smplayer/translations/smplayer_ro_RO.qm
 %lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
@@ -115,6 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sv) %{_datadir}/smplayer/translations/smplayer_sv.qm
 %lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
 %lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
+%lang(vi_VN) %{_datadir}/smplayer/translations/smplayer_vi_VN.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
 %lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
 %{_desktopdir}/smplayer.desktop
