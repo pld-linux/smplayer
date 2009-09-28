@@ -2,7 +2,7 @@ Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
 Version:	0.6.8
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
@@ -46,30 +46,31 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 %prep
 %setup -q
 
+# skip docs isntall
+%{__sed} -i -e '/DOC_PATH/d' Makefile src/smplayer.pro
+
+# skip manpage compress
+%{__sed} -i -e '/gzip/d' Makefile
+
+# skip build rule on install
+%{__sed} -i -e 's,install: src/smplayer,install:,' Makefile
+
+# disable debug on console on unix too
+%{__sed} -i -e '/NO_DEBUG_ON_CONSOLE/s,#DEFINES,DEFINES,' src/smplayer.pro
+
 %build
-# fix: install only (not build source again)
-%{__sed} -i 's,install: src.*,install:,' Makefile
-
-
-cd src
-rm -f Makefile
-qmake-qt4
 %{__make} \
-	THEMES_PATH=\\\"%{_datadir}/smplayer/themes\\\" \
-	TRANSLATION_PATH=\\\"%{_datadir}/smplayer/translations/\\\"
-
-# " - for vim
-
-lrelease-qt4 smplayer.pro
+	PREFIX=%{_prefix} \
+	QMAKE=qmake-qt4 \
+	LRELEASE=lrelease-qt4
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/smplayer/themes
 
 %{__make} install \
-	PREFIX=$RPM_BUILD_ROOT%{_prefix}
-
-rm -rf $RPM_BUILD_ROOT%{_docdir}/packages
+	PREFIX=%{_prefix} \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
