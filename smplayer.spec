@@ -1,13 +1,17 @@
+
+# TODO:
+# add smtube to PLD repo to enable youtube videos
+
 %define		qtver	4.3.3-3
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.7.0
+Version:	0.7.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	e39ba5b54e6218d411ecd296002d77bb
+# Source0-md5:	e50046399ee918bb7b57e98971425c95
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -21,6 +25,7 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	desktop-file-utils
 Requires:	mplayer >= 3:1.0-5.rc2_svn27725.17
+#Suggests:	smtube
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
