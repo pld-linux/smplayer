@@ -1,17 +1,17 @@
 
-# TODO:
-# add smtube to PLD repo to enable youtube videos
-
 %define		qtver	4.3.3-3
+%define		smver	1.0
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
 Version:	0.7.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
 # Source0-md5:	e50046399ee918bb7b57e98971425c95
+Source1:	http://downloads.sourceforge.net/smplayer/smtube-%{smver}.tar.bz2
+# Source1-md5:	dc9b8d981296a1906af12b8011594155
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -25,6 +25,7 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	desktop-file-utils
 Requires:	mplayer >= 3:1.0-5.rc2_svn27725.17
+Suggests:	smplayer-smtube
 #Suggests:	smtube
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,19 +41,34 @@ resume at the same point you left it, and with the same settings:
 audio track, subtitles, volume...
 
 %description -l pl.UTF-8
-SMPlayer stara się być kompletną nakładką na MPlayera, począwszy od
-podstawowych funkcji jak odtwarzanie plików video, DVD i VCD kończąc
-na bardziej zaawansowanych opcjach jak obsługa filtrów MPlayera oraz
-wiele więcej.
+SMPlayer stara się być kompletną nakładką na MPlayera, począwszy
+od podstawowych funkcji jak odtwarzanie plików video, DVD i VCD
+kończąc na bardziej zaawansowanych opcjach jak obsługa filtrów
+MPlayera oraz wiele więcej.
 
 Jedną z najciekawszych funkcji SMPlayera jest to, że zapamiętuje
-ustawienia wszystkich plików jakie odgrywasz. Zaczynasz oglądać film,
-ale musisz wyjść... nie martw się, kiedy odtworzysz film ponownie
-zacznie od momentu, w którym go wyłączyłeś i z tymi samymi
-ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
+ustawienia wszystkich plików jakie odgrywasz. Zaczynasz oglądać
+film, ale musisz wyjść... nie martw się, kiedy odtworzysz film
+ponownie zacznie od momentu, w którym go wyłączyłeś i z tymi
+samymi ustawieniami jak: ścieżka dźwiękowa, napisy,
+głośność...
+
+%package smtube
+Summary:	Support for youtube videos
+Summary(pl.UTF-8):	Wparcie dla filmów youtube
+License:	GPL
+Group:		X11/Applications
+
+%description smtube 
+Support for youtube videos in smplayer.
+
+%description smtube -l pl.UTF-8
+Wparcie dla filmów youtub dla aplikacji smplaer.
 
 %prep
 %setup -q
+
+tar xjf %{SOURCE1}
 
 # skip docs isntall
 %{__sed} -i -e '/DOC_PATH/d' Makefile src/smplayer.pro
@@ -72,10 +88,21 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 	QMAKE=qmake-qt4 \
 	LRELEASE=lrelease-qt4
 
+cd smtube-%{smver}
+%{__make} \
+	PREFIX=%{_prefix} \
+	QMAKE=qmake-qt4 \
+	LRELEASE=lrelease-qt4
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/smplayer/themes
 
+%{__make} install \
+	PREFIX=%{_prefix} \
+	DESTDIR=$RPM_BUILD_ROOT
+
+cd smtube-%{smver}
 %{__make} install \
 	PREFIX=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -100,6 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
 %lang(ca) %{_datadir}/smplayer/translations/smplayer_ca.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
+%lang(da) %{_datadir}/smplayer/translations/smplayer_da.qm
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
 %lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
 %lang(el) %{_datadir}/smplayer/translations/smplayer_el_GR.qm
@@ -110,6 +138,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
 %lang(gl) %{_datadir}/smplayer/translations/smplayer_gl.qm
 %lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
+%lang(hr) %{_datadir}/smplayer/translations/smplayer_hr.qm
 %lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
 %lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
@@ -136,3 +165,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/smplayer_enqueue.desktop
 %{_iconsdir}/hicolor/*/apps/smplayer.png
 %{_mandir}/man1/smplayer.1*
+
+%files smtube
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/smtube
+%{_iconsdir}/hicolor/*/apps/smtube.png
+%lang(en) %{_datadir}/smtube/translations/smtube_en.qm
+%lang(es) %{_datadir}/smtube/translations/smtube_es.qm
+%lang(ja) %{_datadir}/smtube/translations/smtube_ja.qm
+%lang(lt) %{_datadir}/smtube/translations/smtube_lt.qm
+%lang(ru) %{_datadir}/smtube/translations/smtube_ru_RU.qm
+%{_desktopdir}/smtube.desktop
