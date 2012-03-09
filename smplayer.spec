@@ -5,7 +5,7 @@ Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
 Version:	0.7.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
@@ -168,6 +168,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files smtube
 %defattr(644,root,root,755)
+%dir %{_datadir}/smtube
+%dir %{_datadir}/smtube/translations
 %attr(755,root,root) %{_bindir}/smtube
 %{_iconsdir}/hicolor/*/apps/smtube.png
 %lang(en) %{_datadir}/smtube/translations/smtube_en.qm
