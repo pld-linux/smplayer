@@ -1,17 +1,17 @@
 
 %define		qtver	4.3.3-3
-%define		smver	1.0
+%define		smver	1.1
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.7.1
-Release:	3
+Version:	0.8.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	e50046399ee918bb7b57e98971425c95
+# Source0-md5:	8f7d3a9c116e956c68976d0e5dbb83dd
 Source1:	http://downloads.sourceforge.net/smplayer/smtube-%{smver}.tar.bz2
-# Source1-md5:	dc9b8d981296a1906af12b8011594155
+# Source1-md5:	e5018fcd9ebdc08658136476ba4843d2
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
