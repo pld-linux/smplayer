@@ -1,6 +1,8 @@
+# TODO
+# - smtube: use system qtsingleapplication
 
 %define		qtver	4.3.3-3
-%define		smver	1.5
+%define		smver	1.7
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
@@ -11,7 +13,7 @@ Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
 # Source0-md5:	4691b569c4209d7e5a2c1386d9319881
 Source1:	http://downloads.sourceforge.net/smplayer/smtube-%{smver}.tar.bz2
-# Source1-md5:	030327f3e9fbdf901967cf82c058fd1f
+# Source1-md5:	d9a954e1b337f0c850dcfc6063255056
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -25,8 +27,7 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	desktop-file-utils
 Requires:	mplayer >= 3:1.0-5.rc2_svn27725.17
-Suggests:	smplayer-smtube
-#Suggests:	smtube
+Suggests:	%{name}-smtube
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -65,12 +66,12 @@ Support for youtube videos in smplayer.
 Wparcie dla filmów youtub dla aplikacji smplaer.
 
 %prep
-%setup -q
+%setup -q -a1
+mv smtube-%{smver} smtube
 
-tar xjf %{SOURCE1}
-
-# skip docs isntall
+# skip docs install
 %{__sed} -i -e '/DOC_PATH/d' Makefile src/smplayer.pro
+%{__sed} -i -e '/DOC_PATH/d' Makefile smtube/src/smtube.pro
 
 # skip manpage compress
 %{__sed} -i -e '/gzip/d' Makefile
@@ -87,7 +88,7 @@ tar xjf %{SOURCE1}
 	QMAKE=qmake-qt4 \
 	LRELEASE=lrelease-qt4
 
-%{__make} smtube-%{smver} \
+%{__make} -C smtube \
 	PREFIX=%{_prefix} \
 	QMAKE=qmake-qt4 \
 	LRELEASE=lrelease-qt4
@@ -99,7 +100,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/smplayer/themes
 	PREFIX=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__make} -C smtube-%{smver} install \
+%{__make} -C smtube install \
 	PREFIX=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -169,20 +170,31 @@ rm -rf $RPM_BUILD_ROOT
 
 %files smtube
 %defattr(644,root,root,755)
+%doc smtube/{Readme.txt,Release_notes.txt,Changelog}
 %attr(755,root,root) %{_bindir}/smtube
 %{_desktopdir}/smtube.desktop
 %{_iconsdir}/hicolor/*/apps/smtube.png
 %dir %{_datadir}/smtube
 %dir %{_datadir}/smtube/translations
+%lang(cs) %{_datadir}/smtube/translations/smtube_cs.qm
 %lang(el) %{_datadir}/smtube/translations/smtube_el.qm
 %lang(en) %{_datadir}/smtube/translations/smtube_en.qm
 %lang(es) %{_datadir}/smtube/translations/smtube_es.qm
 %lang(eu) %{_datadir}/smtube/translations/smtube_eu.qm
+%lang(fi) %{_datadir}/smtube/translations/smtube_fi.qm
 %lang(gl) %{_datadir}/smtube/translations/smtube_gl.qm
+%lang(he_IL) %{_datadir}/smtube/translations/smtube_he_IL.qm
 %lang(hu) %{_datadir}/smtube/translations/smtube_hu.qm
 %lang(ja) %{_datadir}/smtube/translations/smtube_ja.qm
+%lang(ka) %{_datadir}/smtube/translations/smtube_ka.qm
 %lang(lt) %{_datadir}/smtube/translations/smtube_lt.qm
+%lang(ms_MY) %{_datadir}/smtube/translations/smtube_ms_MY.qm
+%lang(nn_NO) %{_datadir}/smtube/translations/smtube_nn_NO.qm
 %lang(pl) %{_datadir}/smtube/translations/smtube_pl.qm
 %lang(pt) %{_datadir}/smtube/translations/smtube_pt.qm
+%lang(pt_BR) %{_datadir}/smtube/translations/smtube_pt_BR.qm
 %lang(ru) %{_datadir}/smtube/translations/smtube_ru_RU.qm
+%lang(sv) %{_datadir}/smtube/translations/smtube_sv.qm
+%lang(tr) %{_datadir}/smtube/translations/smtube_tr.qm
+%lang(uk) %{_datadir}/smtube/translations/smtube_uk.qm
 %lang(zh_CN) %{_datadir}/smtube/translations/smtube_zh_CN.qm
