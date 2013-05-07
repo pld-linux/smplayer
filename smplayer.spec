@@ -4,12 +4,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.8.3
+Version:	0.8.4
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	48755bffdff3878df32d8c047d7a3d52
+# Source0-md5:	4691b569c4209d7e5a2c1386d9319881
 Source1:	http://downloads.sourceforge.net/smplayer/smtube-%{smver}.tar.bz2
 # Source1-md5:	030327f3e9fbdf901967cf82c058fd1f
 URL:		http://smplayer.sourceforge.net/
@@ -41,17 +41,16 @@ resume at the same point you left it, and with the same settings:
 audio track, subtitles, volume...
 
 %description -l pl.UTF-8
-SMPlayer stara się być kompletną nakładką na MPlayera, począwszy
-od podstawowych funkcji jak odtwarzanie plików video, DVD i VCD
-kończąc na bardziej zaawansowanych opcjach jak obsługa filtrów
-MPlayera oraz wiele więcej.
+SMPlayer stara się być kompletną nakładką na MPlayera, począwszy od
+podstawowych funkcji jak odtwarzanie plików video, DVD i VCD kończąc
+na bardziej zaawansowanych opcjach jak obsługa filtrów MPlayera oraz
+wiele więcej.
 
 Jedną z najciekawszych funkcji SMPlayera jest to, że zapamiętuje
-ustawienia wszystkich plików jakie odgrywasz. Zaczynasz oglądać
-film, ale musisz wyjść... nie martw się, kiedy odtworzysz film
-ponownie zacznie od momentu, w którym go wyłączyłeś i z tymi
-samymi ustawieniami jak: ścieżka dźwiękowa, napisy,
-głośność...
+ustawienia wszystkich plików jakie odgrywasz. Zaczynasz oglądać film,
+ale musisz wyjść... nie martw się, kiedy odtworzysz film ponownie
+zacznie od momentu, w którym go wyłączyłeś i z tymi samymi
+ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
 %package smtube
 Summary:	Support for youtube videos
@@ -59,7 +58,7 @@ Summary(pl.UTF-8):	Wparcie dla filmów youtube
 License:	GPL
 Group:		X11/Applications
 
-%description smtube 
+%description smtube
 Support for youtube videos in smplayer.
 
 %description smtube -l pl.UTF-8
@@ -88,8 +87,7 @@ tar xjf %{SOURCE1}
 	QMAKE=qmake-qt4 \
 	LRELEASE=lrelease-qt4
 
-cd smtube-%{smver}
-%{__make} \
+%{__make} smtube-%{smver} \
 	PREFIX=%{_prefix} \
 	QMAKE=qmake-qt4 \
 	LRELEASE=lrelease-qt4
@@ -97,15 +95,15 @@ cd smtube-%{smver}
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/smplayer/themes
-
 %{__make} install \
 	PREFIX=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cd smtube-%{smver}
-%{__make} install \
+%{__make} -C smtube-%{smver} install \
 	PREFIX=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/smtube
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -115,8 +113,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changelog Not_so_obvious_things.txt Readme.txt
+%doc Changelog Not_so_obvious_things.txt Readme.txt Release_notes.txt
 %attr(755,root,root) %{_bindir}/smplayer
+%{_mandir}/man1/smplayer.1*
+%{_desktopdir}/smplayer.desktop
+%{_desktopdir}/smplayer_enqueue.desktop
+%{_iconsdir}/hicolor/*/apps/smplayer.png
+%{_iconsdir}/hicolor/*/apps/smplayer.svg
 %dir %{_datadir}/smplayer
 %{_datadir}/smplayer/input.conf
 %dir %{_datadir}/smplayer/shortcuts
@@ -129,16 +132,17 @@ rm -rf $RPM_BUILD_ROOT
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
 %lang(da) %{_datadir}/smplayer/translations/smplayer_da.qm
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
-%lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
 %lang(el) %{_datadir}/smplayer/translations/smplayer_el_GR.qm
+%lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
 %lang(et) %{_datadir}/smplayer/translations/smplayer_et.qm
 %lang(eu) %{_datadir}/smplayer/translations/smplayer_eu.qm
 %lang(fi) %{_datadir}/smplayer/translations/smplayer_fi.qm
 %lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
 %lang(gl) %{_datadir}/smplayer/translations/smplayer_gl.qm
-%lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
+%lang(he_IL) %{_datadir}/smplayer/translations/smplayer_he_IL.qm
 %lang(hr) %{_datadir}/smplayer/translations/smplayer_hr.qm
+%lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
 %lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
 %lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
@@ -156,25 +160,29 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sl) %{_datadir}/smplayer/translations/smplayer_sl_SI.qm
 %lang(sr) %{_datadir}/smplayer/translations/smplayer_sr.qm
 %lang(sv) %{_datadir}/smplayer/translations/smplayer_sv.qm
+%lang(th) %{_datadir}/smplayer/translations/smplayer_th.qm
 %lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
 %lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
 %lang(vi) %{_datadir}/smplayer/translations/smplayer_vi_VN.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
 %lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
-%{_desktopdir}/smplayer.desktop
-%{_desktopdir}/smplayer_enqueue.desktop
-%{_iconsdir}/hicolor/*/apps/smplayer.png
-%{_mandir}/man1/smplayer.1*
 
 %files smtube
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/smtube
+%{_desktopdir}/smtube.desktop
+%{_iconsdir}/hicolor/*/apps/smtube.png
 %dir %{_datadir}/smtube
 %dir %{_datadir}/smtube/translations
-%attr(755,root,root) %{_bindir}/smtube
-%{_iconsdir}/hicolor/*/apps/smtube.png
+%lang(el) %{_datadir}/smtube/translations/smtube_el.qm
 %lang(en) %{_datadir}/smtube/translations/smtube_en.qm
 %lang(es) %{_datadir}/smtube/translations/smtube_es.qm
+%lang(eu) %{_datadir}/smtube/translations/smtube_eu.qm
+%lang(gl) %{_datadir}/smtube/translations/smtube_gl.qm
+%lang(hu) %{_datadir}/smtube/translations/smtube_hu.qm
 %lang(ja) %{_datadir}/smtube/translations/smtube_ja.qm
 %lang(lt) %{_datadir}/smtube/translations/smtube_lt.qm
+%lang(pl) %{_datadir}/smtube/translations/smtube_pl.qm
+%lang(pt) %{_datadir}/smtube/translations/smtube_pt.qm
 %lang(ru) %{_datadir}/smtube/translations/smtube_ru_RU.qm
-%{_desktopdir}/smtube.desktop
+%lang(zh_CN) %{_datadir}/smtube/translations/smtube_zh_CN.qm
