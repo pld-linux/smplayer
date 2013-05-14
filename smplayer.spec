@@ -6,12 +6,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.8.4
+Version:	0.8.5
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	4691b569c4209d7e5a2c1386d9319881
+# Source0-md5:	deb781ecdc4dd9f0533ccce8f1772865
 Source1:	http://downloads.sourceforge.net/smplayer/smtube-%{smver}.tar.bz2
 # Source1-md5:	d9a954e1b337f0c850dcfc6063255056
 URL:		http://smplayer.sourceforge.net/
