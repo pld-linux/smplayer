@@ -2,18 +2,18 @@
 # - smtube: use system qtsingleapplication
 
 %define		qtver	4.3.3-3
-%define		smver	1.7
+%define		smver	2.1
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	0.8.6
+Version:	14.3.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	deddbce75049b5c4f15ec6c02eaf8790
+# Source0-md5:	c6ef86f7fe0022b35c0f06430f4cd9bd
 Source1:	http://downloads.sourceforge.net/smplayer/smtube-%{smver}.tar.bz2
-# Source1-md5:	d9a954e1b337f0c850dcfc6063255056
+# Source1-md5:	9cd034d5abcbc66445478b5824af50f1
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -125,15 +125,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/smplayer/input.conf
 %dir %{_datadir}/smplayer/shortcuts
 %{_datadir}/smplayer/shortcuts/default.keys
+%{_datadir}/smplayer/shortcuts/euskara.keys
 %dir %{_datadir}/smplayer/themes
 %dir %{_datadir}/smplayer/translations
-%lang(ar) %{_datadir}/smplayer/translations/smplayer_ar_SY.qm
+%lang(ar) %{_datadir}/smplayer/translations/smplayer_ar.qm
+%lang(ar_SY) %{_datadir}/smplayer/translations/smplayer_ar_SY.qm
 %lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
 %lang(ca) %{_datadir}/smplayer/translations/smplayer_ca.qm
 %lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
 %lang(da) %{_datadir}/smplayer/translations/smplayer_da.qm
 %lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
 %lang(el) %{_datadir}/smplayer/translations/smplayer_el_GR.qm
+%lang(en_GB) %{_datadir}/smplayer/translations/smplayer_en_GB.qm
 %lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
 %lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
 %lang(et) %{_datadir}/smplayer/translations/smplayer_et.qm
@@ -144,6 +147,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(he_IL) %{_datadir}/smplayer/translations/smplayer_he_IL.qm
 %lang(hr) %{_datadir}/smplayer/translations/smplayer_hr.qm
 %lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
+%lang(id) %{_datadir}/smplayer/translations/smplayer_id.qm
 %lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
 %lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
 %lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
@@ -153,6 +157,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(mk) %{_datadir}/smplayer/translations/smplayer_mk.qm
 %lang(ms_MY) %{_datadir}/smplayer/translations/smplayer_ms_MY.qm
 %lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
+%lang(nn) %{_datadir}/smplayer/translations/smplayer_nn_NO.qm
 %lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
 %lang(pt) %{_datadir}/smplayer/translations/smplayer_pt.qm
 %lang(pt_BR) %{_datadir}/smplayer/translations/smplayer_pt_BR.qm
@@ -165,6 +170,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(th) %{_datadir}/smplayer/translations/smplayer_th.qm
 %lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
 %lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
+%lang(uz) %{_datadir}/smplayer/translations/smplayer_uz.qm
 %lang(vi) %{_datadir}/smplayer/translations/smplayer_vi_VN.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
 %lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
@@ -177,25 +183,39 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/smtube.png
 %dir %{_datadir}/smtube
 %dir %{_datadir}/smtube/translations
+%lang(ar) %{_datadir}/smtube/translations/smtube_ar.qm
+%lang(bg) %{_datadir}/smtube/translations/smtube_bg.qm
+%lang(ca) %{_datadir}/smtube/translations/smtube_ca.qm
 %lang(cs) %{_datadir}/smtube/translations/smtube_cs.qm
+%lang(de) %{_datadir}/smtube/translations/smtube_de.qm
 %lang(el) %{_datadir}/smtube/translations/smtube_el.qm
 %lang(en) %{_datadir}/smtube/translations/smtube_en.qm
 %lang(es) %{_datadir}/smtube/translations/smtube_es.qm
+%lang(et) %{_datadir}/smtube/translations/smtube_et.qm
 %lang(eu) %{_datadir}/smtube/translations/smtube_eu.qm
 %lang(fi) %{_datadir}/smtube/translations/smtube_fi.qm
+%lang(fr) %{_datadir}/smtube/translations/smtube_fr.qm
 %lang(gl) %{_datadir}/smtube/translations/smtube_gl.qm
 %lang(he_IL) %{_datadir}/smtube/translations/smtube_he_IL.qm
+%lang(hr) %{_datadir}/smtube/translations/smtube_hr.qm
 %lang(hu) %{_datadir}/smtube/translations/smtube_hu.qm
+%lang(id) %{_datadir}/smtube/translations/smtube_id.qm
+%lang(it) %{_datadir}/smtube/translations/smtube_it.qm
 %lang(ja) %{_datadir}/smtube/translations/smtube_ja.qm
 %lang(ka) %{_datadir}/smtube/translations/smtube_ka.qm
+%lang(ko) %{_datadir}/smtube/translations/smtube_ko.qm
 %lang(lt) %{_datadir}/smtube/translations/smtube_lt.qm
 %lang(ms_MY) %{_datadir}/smtube/translations/smtube_ms_MY.qm
 %lang(nn_NO) %{_datadir}/smtube/translations/smtube_nn_NO.qm
+%lang(nqo) %{_datadir}/smtube/translations/smtube_nqo.qm
 %lang(pl) %{_datadir}/smtube/translations/smtube_pl.qm
 %lang(pt) %{_datadir}/smtube/translations/smtube_pt.qm
 %lang(pt_BR) %{_datadir}/smtube/translations/smtube_pt_BR.qm
 %lang(ru) %{_datadir}/smtube/translations/smtube_ru_RU.qm
+%lang(sr) %{_datadir}/smtube/translations/smtube_sr.qm
 %lang(sv) %{_datadir}/smtube/translations/smtube_sv.qm
 %lang(tr) %{_datadir}/smtube/translations/smtube_tr.qm
 %lang(uk) %{_datadir}/smtube/translations/smtube_uk.qm
+%lang(vi) %{_datadir}/smtube/translations/smtube_vi.qm
 %lang(zh_CN) %{_datadir}/smtube/translations/smtube_zh_CN.qm
+%lang(zh_TW) %{_datadir}/smtube/translations/smtube_zh_TW.qm
