@@ -2,18 +2,18 @@
 # - smtube: use system qtsingleapplication
 
 %define		qtver	4.3.3-3
-%define		smver	2.1
+%define		smver	14.8.0
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	14.3.0
+Version:	14.9.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	c6ef86f7fe0022b35c0f06430f4cd9bd
+# Source0-md5:	34bd6762f684064bafdaea0afa4e2d40
 Source1:	http://downloads.sourceforge.net/smplayer/smtube-%{smver}.tar.bz2
-# Source1-md5:	9cd034d5abcbc66445478b5824af50f1
+# Source1-md5:	21d9341a1a5de13a7064296f6625d399
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -190,6 +190,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(de) %{_datadir}/smtube/translations/smtube_de.qm
 %lang(el) %{_datadir}/smtube/translations/smtube_el.qm
 %lang(en) %{_datadir}/smtube/translations/smtube_en.qm
+%lang(en_GB) %{_datadir}/smtube/translations/smtube_en_GB.qm
 %lang(es) %{_datadir}/smtube/translations/smtube_es.qm
 %lang(et) %{_datadir}/smtube/translations/smtube_et.qm
 %lang(eu) %{_datadir}/smtube/translations/smtube_eu.qm
@@ -212,6 +213,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt) %{_datadir}/smtube/translations/smtube_pt.qm
 %lang(pt_BR) %{_datadir}/smtube/translations/smtube_pt_BR.qm
 %lang(ru) %{_datadir}/smtube/translations/smtube_ru_RU.qm
+%lang(sk) %{_datadir}/smtube/translations/smtube_sk.qm
+%lang(sq_AL) %{_datadir}/smtube/translations/smtube_sq_AL.qm
 %lang(sr) %{_datadir}/smtube/translations/smtube_sr.qm
 %lang(sv) %{_datadir}/smtube/translations/smtube_sv.qm
 %lang(tr) %{_datadir}/smtube/translations/smtube_tr.qm
