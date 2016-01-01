@@ -1,6 +1,3 @@
-# TODO
-# - smtube: use system qtsingleapplication
-
 %define		qtver	4.3.3-3
 %define		smver	14.8.0
 Summary:	smplayer - mplayer frontend
@@ -12,8 +9,6 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
 # Source0-md5:	e6f459f640908df2403381a39a27cdba
-Source1:	http://downloads.sourceforge.net/smplayer/smtube-%{smver}.tar.bz2
-# Source1-md5:	21d9341a1a5de13a7064296f6625d399
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -27,7 +22,7 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	desktop-file-utils
 Requires:	mplayer >= 3:1.0-5.rc2_svn27725.17
-Suggests:	%{name}-smtube
+Suggests:	smtube
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,25 +48,11 @@ ale musisz wyjść... nie martw się, kiedy odtworzysz film ponownie
 zacznie od momentu, w którym go wyłączyłeś i z tymi samymi
 ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 
-%package smtube
-Summary:	Support for youtube videos
-Summary(pl.UTF-8):	Wparcie dla filmów youtube
-License:	GPL
-Group:		X11/Applications
-
-%description smtube
-Support for youtube videos in smplayer.
-
-%description smtube -l pl.UTF-8
-Wparcie dla filmów youtub dla aplikacji smplaer.
-
 %prep
-%setup -q -a1
-mv smtube-%{smver} smtube
+%setup -q
 
 # skip docs install
 %{__sed} -i -e '/DOC_PATH/d' Makefile src/smplayer.pro
-%{__sed} -i -e '/DOC_PATH/d' Makefile smtube/src/smtube.pro
 
 # skip manpage compress
 %{__sed} -i -e '/gzip/d' Makefile
@@ -88,23 +69,12 @@ mv smtube-%{smver} smtube
 	QMAKE=qmake-qt4 \
 	LRELEASE=lrelease-qt4
 
-%{__make} -C smtube \
-	PREFIX=%{_prefix} \
-	QMAKE=qmake-qt4 \
-	LRELEASE=lrelease-qt4
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/smplayer/themes
 %{__make} install \
 	PREFIX=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
-
-%{__make} -C smtube install \
-	PREFIX=%{_prefix} \
-	DESTDIR=$RPM_BUILD_ROOT
-
-%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/smtube
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -175,51 +145,3 @@ rm -rf $RPM_BUILD_ROOT
 %lang(vi) %{_datadir}/smplayer/translations/smplayer_vi_VN.qm
 %lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
 %lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
-
-%files smtube
-%defattr(644,root,root,755)
-%doc smtube/{Readme.txt,Release_notes.txt,Changelog}
-%attr(755,root,root) %{_bindir}/smtube
-%{_desktopdir}/smtube.desktop
-%{_iconsdir}/hicolor/*/apps/smtube.png
-%dir %{_datadir}/smtube
-%dir %{_datadir}/smtube/translations
-%lang(ar) %{_datadir}/smtube/translations/smtube_ar.qm
-%lang(bg) %{_datadir}/smtube/translations/smtube_bg.qm
-%lang(ca) %{_datadir}/smtube/translations/smtube_ca.qm
-%lang(cs) %{_datadir}/smtube/translations/smtube_cs.qm
-%lang(de) %{_datadir}/smtube/translations/smtube_de.qm
-%lang(el) %{_datadir}/smtube/translations/smtube_el.qm
-%lang(en) %{_datadir}/smtube/translations/smtube_en.qm
-%lang(en_GB) %{_datadir}/smtube/translations/smtube_en_GB.qm
-%lang(es) %{_datadir}/smtube/translations/smtube_es.qm
-%lang(et) %{_datadir}/smtube/translations/smtube_et.qm
-%lang(eu) %{_datadir}/smtube/translations/smtube_eu.qm
-%lang(fi) %{_datadir}/smtube/translations/smtube_fi.qm
-%lang(fr) %{_datadir}/smtube/translations/smtube_fr.qm
-%lang(gl) %{_datadir}/smtube/translations/smtube_gl.qm
-%lang(he_IL) %{_datadir}/smtube/translations/smtube_he_IL.qm
-%lang(hr) %{_datadir}/smtube/translations/smtube_hr.qm
-%lang(hu) %{_datadir}/smtube/translations/smtube_hu.qm
-%lang(id) %{_datadir}/smtube/translations/smtube_id.qm
-%lang(it) %{_datadir}/smtube/translations/smtube_it.qm
-%lang(ja) %{_datadir}/smtube/translations/smtube_ja.qm
-%lang(ka) %{_datadir}/smtube/translations/smtube_ka.qm
-%lang(ko) %{_datadir}/smtube/translations/smtube_ko.qm
-%lang(lt) %{_datadir}/smtube/translations/smtube_lt.qm
-%lang(ms_MY) %{_datadir}/smtube/translations/smtube_ms_MY.qm
-%lang(nn_NO) %{_datadir}/smtube/translations/smtube_nn_NO.qm
-%lang(nqo) %{_datadir}/smtube/translations/smtube_nqo.qm
-%lang(pl) %{_datadir}/smtube/translations/smtube_pl.qm
-%lang(pt) %{_datadir}/smtube/translations/smtube_pt.qm
-%lang(pt_BR) %{_datadir}/smtube/translations/smtube_pt_BR.qm
-%lang(ru) %{_datadir}/smtube/translations/smtube_ru_RU.qm
-%lang(sk) %{_datadir}/smtube/translations/smtube_sk.qm
-%lang(sq_AL) %{_datadir}/smtube/translations/smtube_sq_AL.qm
-%lang(sr) %{_datadir}/smtube/translations/smtube_sr.qm
-%lang(sv) %{_datadir}/smtube/translations/smtube_sv.qm
-%lang(tr) %{_datadir}/smtube/translations/smtube_tr.qm
-%lang(uk) %{_datadir}/smtube/translations/smtube_uk.qm
-%lang(vi) %{_datadir}/smtube/translations/smtube_vi.qm
-%lang(zh_CN) %{_datadir}/smtube/translations/smtube_zh_CN.qm
-%lang(zh_TW) %{_datadir}/smtube/translations/smtube_zh_TW.qm
