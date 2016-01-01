@@ -19,6 +19,7 @@ BuildRequires:	QtXml-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-linguist >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
+BuildRequires:	rpmbuild(find_lang) >= 1.37
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	desktop-file-utils
 Requires:	mplayer >= 3:1.0-5.rc2_svn27725.17
@@ -76,13 +77,15 @@ install -d $RPM_BUILD_ROOT%{_datadir}/smplayer/themes
 	PREFIX=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang %{name} --with-qm
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_desktop_database
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc Changelog Not_so_obvious_things.txt Readme.txt Release_notes.txt
 %attr(755,root,root) %{_bindir}/smplayer
@@ -98,50 +101,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/smplayer/shortcuts/euskara.keys
 %dir %{_datadir}/smplayer/themes
 %dir %{_datadir}/smplayer/translations
-%lang(ar) %{_datadir}/smplayer/translations/smplayer_ar.qm
-%lang(ar_SY) %{_datadir}/smplayer/translations/smplayer_ar_SY.qm
-%lang(bg) %{_datadir}/smplayer/translations/smplayer_bg.qm
-%lang(ca) %{_datadir}/smplayer/translations/smplayer_ca.qm
-%lang(cs) %{_datadir}/smplayer/translations/smplayer_cs.qm
-%lang(da) %{_datadir}/smplayer/translations/smplayer_da.qm
-%lang(de) %{_datadir}/smplayer/translations/smplayer_de.qm
-%lang(el) %{_datadir}/smplayer/translations/smplayer_el_GR.qm
-%lang(en_GB) %{_datadir}/smplayer/translations/smplayer_en_GB.qm
-%lang(en_US) %{_datadir}/smplayer/translations/smplayer_en_US.qm
-%lang(es) %{_datadir}/smplayer/translations/smplayer_es.qm
-%lang(et) %{_datadir}/smplayer/translations/smplayer_et.qm
-%lang(eu) %{_datadir}/smplayer/translations/smplayer_eu.qm
-%lang(fi) %{_datadir}/smplayer/translations/smplayer_fi.qm
-%lang(fr) %{_datadir}/smplayer/translations/smplayer_fr.qm
-%lang(gl) %{_datadir}/smplayer/translations/smplayer_gl.qm
-%lang(he_IL) %{_datadir}/smplayer/translations/smplayer_he_IL.qm
-%lang(hr) %{_datadir}/smplayer/translations/smplayer_hr.qm
-%lang(hu) %{_datadir}/smplayer/translations/smplayer_hu.qm
-%lang(id) %{_datadir}/smplayer/translations/smplayer_id.qm
-%lang(it) %{_datadir}/smplayer/translations/smplayer_it.qm
-%lang(ja) %{_datadir}/smplayer/translations/smplayer_ja.qm
-%lang(ka) %{_datadir}/smplayer/translations/smplayer_ka.qm
-%lang(ko) %{_datadir}/smplayer/translations/smplayer_ko.qm
-%lang(ku) %{_datadir}/smplayer/translations/smplayer_ku.qm
-%lang(lt) %{_datadir}/smplayer/translations/smplayer_lt.qm
-%lang(mk) %{_datadir}/smplayer/translations/smplayer_mk.qm
-%lang(ms_MY) %{_datadir}/smplayer/translations/smplayer_ms_MY.qm
-%lang(nl) %{_datadir}/smplayer/translations/smplayer_nl.qm
-%lang(nn) %{_datadir}/smplayer/translations/smplayer_nn_NO.qm
-%lang(pl) %{_datadir}/smplayer/translations/smplayer_pl.qm
-%lang(pt) %{_datadir}/smplayer/translations/smplayer_pt.qm
-%lang(pt_BR) %{_datadir}/smplayer/translations/smplayer_pt_BR.qm
-%lang(ro) %{_datadir}/smplayer/translations/smplayer_ro_RO.qm
-%lang(ru) %{_datadir}/smplayer/translations/smplayer_ru_RU.qm
-%lang(sk) %{_datadir}/smplayer/translations/smplayer_sk.qm
-%lang(sl) %{_datadir}/smplayer/translations/smplayer_sl_SI.qm
-%lang(sq_AL) %{_datadir}/smplayer/translations/smplayer_sq_AL.qm
-%lang(sr) %{_datadir}/smplayer/translations/smplayer_sr.qm
-%lang(sv) %{_datadir}/smplayer/translations/smplayer_sv.qm
-%lang(th) %{_datadir}/smplayer/translations/smplayer_th.qm
-%lang(tr) %{_datadir}/smplayer/translations/smplayer_tr.qm
-%lang(uk) %{_datadir}/smplayer/translations/smplayer_uk_UA.qm
-%lang(uz) %{_datadir}/smplayer/translations/smplayer_uz.qm
-%lang(vi) %{_datadir}/smplayer/translations/smplayer_vi_VN.qm
-%lang(zh_CN) %{_datadir}/smplayer/translations/smplayer_zh_CN.qm
-%lang(zh_TW) %{_datadir}/smplayer/translations/smplayer_zh_TW.qm
