@@ -10,11 +10,11 @@ Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
 # Source0-md5:	e6f459f640908df2403381a39a27cdba
 URL:		http://smplayer.sourceforge.net/
-BuildRequires:	Qt3Support-devel
+BuildRequires:	QtDBus-devel
+BuildRequires:	QtScript-devel
 BuildRequires:	QtCore-devel
 BuildRequires:	QtGui-devel
 BuildRequires:	QtNetwork-devel
-BuildRequires:	QtOpenGL-devel
 BuildRequires:	QtXml-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-linguist >= %{qtver}
