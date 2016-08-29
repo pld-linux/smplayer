@@ -1,27 +1,31 @@
+# TODO
+# - switch to qt5
 %define		qtver	4.3.3-3
 %define		smver	14.8.0
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	16.1.0
+Version:	16.8.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	3a85e04132a97c739f3cbd919252c65f
+# Source0-md5:	48b001b6c00e5495be4316c9e1589d11
 URL:		http://smplayer.sourceforge.net/
-BuildRequires:	QtDBus-devel
-BuildRequires:	QtScript-devel
 BuildRequires:	QtCore-devel
+BuildRequires:	QtDBus-devel
 BuildRequires:	QtGui-devel
 BuildRequires:	QtNetwork-devel
+BuildRequires:	QtScript-devel
 BuildRequires:	QtXml-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-linguist >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(find_lang) >= 1.37
-BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	rpmbuild(macros) >= 1.596
 Requires:	desktop-file-utils
+Requires:	gtk-update-icon-cache
+Requires:	hicolor-icon-theme
 Requires:	mplayer >= 3:1.0-5.rc2_svn27725.17
 Suggests:	smtube
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -84,6 +88,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_desktop_database
+%update_icon_cache hicolor
+
+%postun
+%update_desktop_database
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -99,5 +108,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/smplayer/shortcuts
 %{_datadir}/smplayer/shortcuts/default.keys
 %{_datadir}/smplayer/shortcuts/euskara.keys
+%{_datadir}/smplayer/shortcuts/vlc.keys
 %dir %{_datadir}/smplayer/themes
 %dir %{_datadir}/smplayer/translations
