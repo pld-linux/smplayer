@@ -1,16 +1,15 @@
 # TODO
 # - switch to qt5
 %define		qtver	4.3.3-3
-%define		smver	14.8.0
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	17.6.0
+Version:	19.10.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	8f200fa8e440ecb07b96307435284dc6
+# Source0-md5:	9440bce02118e4599302a050e6eea41a
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	QtCore-devel
 BuildRequires:	QtDBus-devel
