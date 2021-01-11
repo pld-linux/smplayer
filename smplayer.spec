@@ -4,12 +4,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	19.10.2
+Version:	21.1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	9440bce02118e4599302a050e6eea41a
+# Source0-md5:	a7e5c8f85e75f9394fe1ce2474d733cd
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	QtCore-devel
 BuildRequires:	QtDBus-devel
