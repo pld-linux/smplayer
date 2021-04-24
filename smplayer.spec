@@ -1,31 +1,35 @@
-# TODO
-# - switch to qt5
-%define		qtver	4.3.3-3
+%define		qtver	5.0
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
 Version:	21.1.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
 # Source0-md5:	a7e5c8f85e75f9394fe1ce2474d733cd
 URL:		http://smplayer.sourceforge.net/
-BuildRequires:	QtCore-devel
-BuildRequires:	QtDBus-devel
-BuildRequires:	QtGui-devel
-BuildRequires:	QtNetwork-devel
-BuildRequires:	QtScript-devel
-BuildRequires:	QtXml-devel
-BuildRequires:	qt4-build >= %{qtver}
-BuildRequires:	qt4-linguist >= %{qtver}
-BuildRequires:	qt4-qmake >= %{qtver}
+BuildRequires:	Qt5Concurrent-devel
+BuildRequires:	Qt5Core-devel
+BuildRequires:	Qt5DBus-devel
+BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5Network-devel
+BuildRequires:	Qt5PrintSupport-devel
+BuildRequires:	Qt5Script-devel
+BuildRequires:	Qt5Sql-devel
+BuildRequires:	Qt5Widgets-devel
+BuildRequires:	Qt5Xml-devel
+BuildRequires:	pkgconfig
+BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt5-linguist >= %{qtver}
+BuildRequires:	qt5-qmake >= %{qtver}
 BuildRequires:	rpmbuild(find_lang) >= 1.37
 BuildRequires:	rpmbuild(macros) >= 1.596
+BuildRequires:	xorg-lib-libXext-devel
 Requires:	desktop-file-utils
 Requires:	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
-Requires:	mplayer >= 3:1.0-5.rc2_svn27725.17
+Requires:	mpv >= 0.6.2
 Suggests:	smtube
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,8 +74,8 @@ ustawieniami jak: ścieżka dźwiękowa, napisy, głośność...
 %build
 %{__make} \
 	PREFIX=%{_prefix} \
-	QMAKE=qmake-qt4 \
-	LRELEASE=lrelease-qt4
+	QMAKE=qmake-qt5 \
+	LRELEASE=lrelease-qt5
 
 %install
 rm -rf $RPM_BUILD_ROOT
