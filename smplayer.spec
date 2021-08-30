@@ -2,12 +2,12 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	21.1.0
-Release:	2
+Version:	21.8.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	a7e5c8f85e75f9394fe1ce2474d733cd
+# Source0-md5:	89da73b1e52dceab4071157b1f2a4318
 URL:		http://smplayer.sourceforge.net/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
@@ -99,12 +99,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc Changelog Not_so_obvious_things.txt Readme.txt Release_notes.txt
+%doc Readme.txt README.md Release_notes.md
 %attr(755,root,root) %{_bindir}/simple_web_server
 %attr(755,root,root) %{_bindir}/smplayer
 %{_mandir}/man1/smplayer.1*
 %{_desktopdir}/smplayer.desktop
 %{_desktopdir}/smplayer_enqueue.desktop
+%{_datadir}/metainfo/smplayer.appdata.xml
 %{_iconsdir}/hicolor/*/apps/smplayer.png
 %{_iconsdir}/hicolor/*/apps/smplayer.svg
 %dir %{_datadir}/smplayer
