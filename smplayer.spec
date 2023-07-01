@@ -2,12 +2,13 @@
 Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
-Version:	22.7.0
-Release:	1
+Version:	23.6.0
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
-Source0:	https://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
-# Source0-md5:	c9531e191e2a41d21a9b9df5a60644be
+#Source0:	https://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
+Source0:	https://github.com/smplayer-dev/smplayer/releases/download/v%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	99f9d40401a395d26904649df9d8576d
 URL:		https://www.smplayer.info/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel
