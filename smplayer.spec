@@ -3,7 +3,7 @@ Summary:	smplayer - mplayer frontend
 Summary(pl.UTF-8):	smplayer - nakładka na mplayera
 Name:		smplayer
 Version:	23.6.0
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
 #Source0:	https://downloads.sourceforge.net/smplayer/%{name}-%{version}.tar.bz2
